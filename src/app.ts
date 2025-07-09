@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const createConnection = require("./config/dbConnection");
 
+const { testRouter } = require("./routes/api.test.router");
 const { authRouter } = require("./routes/auth.router");
 const { userRouter } = require("./routes/user.router");
 const { productRouter } = require("./routes/products.router");
@@ -23,6 +24,10 @@ app.use(express.json())
 createConnection()
     .then(() => console.log("Conectado a la base de datos"))
     .catch((err: any) => console.log("Ha ocurrido un error de conexion", err))
+
+
+// test routes
+app.use('/', testRouter)
 
 // auth route
 app.use('/auth', authRouter)
