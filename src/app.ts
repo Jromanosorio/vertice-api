@@ -1,4 +1,7 @@
-import "dotenv/config"
+if (process.env.NODE_ENV !== 'production'){
+    import("dotenv/config")
+}
+
 import express from "express";
 import cors from "cors";
 import ConnectDB from "./config/dbConnection";

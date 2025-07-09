@@ -1,4 +1,3 @@
-import "dotenv/config"
 import { sign, verify, Secret } from "jsonwebtoken"
 
 const generateToken = async (data: any) => {
