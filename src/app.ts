@@ -2,9 +2,9 @@ if (process.env.NODE_ENV !== 'production'){
     import("dotenv/config")
 }
 
-import express from "express";
-import cors from "cors";
-import ConnectDB from "./config/dbConnection";
+const express = require("express");
+const cors = require("cors");
+const ConnectDB = require("./config/dbConnection");
 
 import { authRouter } from "./routes/auth.router";
 import { userRouter } from "./routes/user.router";
