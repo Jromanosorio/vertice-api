@@ -6,6 +6,7 @@ import ConnectDB from "./config/dbConnection";
 import { authRouter } from "./routes/auth.router";
 import { userRouter } from "./routes/user.router";
 import { productRouter } from "./routes/products.router";
+import { orderRouter } from "./routes/order.router";
 
 const app = express()
 
@@ -24,8 +25,7 @@ ConnectDB()
 app.use('/auth', authRouter)
 
 // api routes
-app.use('/api', userRouter)
-app.use('/api', productRouter)
+app.use('/', userRouter, productRouter, orderRouter)
 
 
 
