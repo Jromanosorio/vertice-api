@@ -4,7 +4,7 @@ import { getProduct, getProducts } from "../controllers/product.controller";
 
 const productRouter = Router()
 
-productRouter.get('/products', isUserLogged, getProducts)
-productRouter.get('/products/:id', isUserLogged, getProduct)
+productRouter.get('/products', getProducts)
+productRouter.get('/products/:id', getProduct)
 
 export { productRouter }

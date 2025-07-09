@@ -3,7 +3,7 @@ import productModel from "../models/Producto";
 
 const getProducts = async (req: Request, res: Response): Promise<any> => {
     try {
-        const productsList = await productModel.find()
+        const productsList = await productModel.find().select('-category -description -createdAt -updatedAt')
         return res.status(200).json({data: productsList})
     } catch (error) {
         return res.status(500).json({error: "SOMETHING_WENT_WRONG"})
@@ -13,7 +13,7 @@ const getProducts = async (req: Request, res: Response): Promise<any> => {
 const getProduct = async (req: Request, res: Response): Promise<any> => {
     try {
         const { id } = req.params
-        const product = await productModel.findOne({ code: id })
+        const product = await productModel.findOne({ code: id }).select('-createdAt -updatedAt')
         
         if(!product) res.status(200).json({ message: "PRODUCT_NOT_FOUND" })
 
