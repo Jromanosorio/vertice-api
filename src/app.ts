@@ -1,10 +1,10 @@
 if (process.env.NODE_ENV !== 'production'){
-    import("dotenv/config")
+    require("dotenv").config()
 }
 
 const express = require("express");
 const cors = require("cors");
-const ConnectDB = require("./config/dbConnection");
+const createConnection = require("./config/dbConnection");
 
 const { authRouter } = require("./routes/auth.router");
 const { userRouter } = require("./routes/user.router");
@@ -20,7 +20,7 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-ConnectDB()
+createConnection()
     .then(() => console.log("Conectado a la base de datos"))
     .catch((err: any) => console.log("Ha ocurrido un error de conexion", err))
 
