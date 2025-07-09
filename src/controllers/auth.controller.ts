@@ -17,7 +17,7 @@ const SignIn = async (req: Request, res: Response): Promise<any> => {
 
     if (!isCorrect) throw new Error
 
-    const token = await generateToken({userID: user._id , name: user.name, email: user.email  })
+    const token = await generateToken({_id: user._id , name: user.name, email: user.email  })
 
     return res.status(200).json({ user, token });
 
