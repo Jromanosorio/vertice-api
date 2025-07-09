@@ -6,10 +6,10 @@ const express = require("express");
 const cors = require("cors");
 const ConnectDB = require("./config/dbConnection");
 
-import { authRouter } from "./routes/auth.router";
-import { userRouter } from "./routes/user.router";
-import { productRouter } from "./routes/products.router";
-import { orderRouter } from "./routes/order.router";
+const { authRouter } = require("./routes/auth.router");
+const { userRouter } = require("./routes/user.router");
+const { productRouter } = require("./routes/products.router");
+const { orderRouter } = require("./routes/order.router");
 
 const app = express()
 
