@@ -27,6 +27,4 @@ app.use('/auth', authRouter)
 // api routes
 app.use('/', userRouter, productRouter, orderRouter)
 
-
-
 app.listen(PORT, () => console.log("Running on PORT: ", PORT))
