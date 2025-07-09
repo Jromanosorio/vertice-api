@@ -22,7 +22,7 @@ app.use(express.json())
 
 ConnectDB()
     .then(() => console.log("Conectado a la base de datos"))
-    .catch((err: Error) => console.log("Ha ocurrido un error de conexion", err))
+    .catch((err: any) => console.log("Ha ocurrido un error de conexion", err))
 
 // auth route
 app.use('/auth', authRouter)
